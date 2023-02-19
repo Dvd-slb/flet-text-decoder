@@ -1,7 +1,7 @@
 import flet
 from time import sleep
 from cipher import cipher_encode, cipher_decode
-# import pyperclip
+import pyperclip
 
 # Vytvoření okna
 def main(page: flet.Page):
@@ -189,9 +189,9 @@ def main(page: flet.Page):
         field_to_decode.value = ""
         field_to_decode.focus()
 
-    # def copy_encoded_text(e):
-    #     pyperclip.copy(encoded_field.value)
-        # data = encoded_field.value
+    def copy_encoded_text(e):
+        pyperclip.copy(encoded_field.value)
+        data = encoded_field.value
         # subprocess.run("pbcopy", text=True, input=data)
 
 
@@ -259,11 +259,11 @@ def main(page: flet.Page):
                                                                side=flet.border.BorderSide(width=1,
                                                                                            color="black")))
     # Tlačítko na zkopírování textu
-    # copy_encode_button = flet.Container(flet.IconButton(icon=flet.icons.COPY, icon_size=25, icon_color="white"),
-    #                                     height=200, on_click=lambda e: copy_encoded_text(e),
-    #                                     border_radius=flet.border_radius.only(topLeft=20, bottomLeft=20, topRight=10,
-    #                                                                           bottomRight=10),
-    #                                     bgcolor="#22292f")
+    copy_encode_button = flet.Container(flet.IconButton(icon=flet.icons.COPY, icon_size=25, icon_color="white"),
+                                        height=200, on_click=lambda e: copy_encoded_text(e),
+                                        border_radius=flet.border_radius.only(topLeft=20, bottomLeft=20, topRight=10,
+                                                                              bottomRight=10),
+                                        bgcolor="#22292f")
     # Vypsání zakódovaného textu
     encoded_field = flet.TextField(label="Zakódovaná zpráva", value=" ", width=255, height=200,
                                    color="#a6a6ac", cursor_color="#a6a6ac", read_only=True, border_color="transparent",
@@ -277,7 +277,7 @@ def main(page: flet.Page):
                                           flet.Row(spacing=0,
                                                    controls=[
                                                        encoded_field,
-                                                       # copy_encode_button
+                                                       copy_encode_button
                                                    ]
                                                    )
                                       ]
