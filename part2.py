@@ -294,7 +294,7 @@ def main(page: flet.Page):
     # Tlačítko pro smazání inputu:
     erase_decode_button = flet.Container(
         flet.IconButton(icon=flet.icons.DELETE_FOREVER_OUTLINED, icon_color="white", icon_size=25),
-        height=190, on_click=lambda e: erase_decode_text(e),
+        height=200, on_click=lambda e: erase_decode_text(e), padding=flet.padding.only(right=-1),
         border_radius=flet.border_radius.only(topLeft=20, bottomLeft=20, topRight=10, bottomRight=10),
         bgcolor="#22292f")
     # gradient=flet.LinearGradient(["#28282b", "transparent"],
